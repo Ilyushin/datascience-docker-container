@@ -6,7 +6,8 @@ Contains widely used Python libraries such as:
 * numpy               
 * pandas
 * sklearn
-* sympy 
+* sympy
+* scipy 
 
 And for interacting with the container Jupyter was pre-installed.
 

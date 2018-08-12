@@ -21,7 +21,7 @@ RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools && \
     pip3 install turicreate && \
     pip3 install -U tensorflow
 
-RUN pip3 install sympy sklearn
+RUN pip3 install sympy scipy sklearn
 
 COPY start-notebook.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/start-notebook.sh
