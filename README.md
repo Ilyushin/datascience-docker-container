@@ -1,13 +1,14 @@
 # Docker container for data scientists
 
 Contains widely used Python libraries such as:
-* TensorFlow
+* TensorFlow (r1.8)
 * Turicreate
 * numpy               
 * pandas
 * sklearn
 * sympy
 * scipy 
+* matplotlib
 
 And for interacting with the container Jupyter was pre-installed.
 
