@@ -2,6 +2,7 @@
 
 Contains widely used Python libraries such as:
 * TensorFlow (r1.8)
+* Keras
 * Turicreate
 * numpy               
 * pandas
