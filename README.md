@@ -10,6 +10,7 @@ Contains widely used Python libraries such as:
 * sympy
 * scipy 
 * matplotlib
+* tqdm
 
 And for interacting with the container Jupyter was pre-installed.
 
