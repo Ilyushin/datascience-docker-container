@@ -18,7 +18,8 @@ RUN apt-get update && apt-get upgrade -y && \
 
 RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
 RUN pip3 install turicreate
-RUN pip3 install -U tensorflow==1.8
+#RUN pip3 install -U tensorflow==1.8
+RUN pip3 install -U tensorflow
 
 RUN pip3 install sympy scipy sklearn matplotlib keras tqdm
 
