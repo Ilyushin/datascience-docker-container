@@ -23,6 +23,7 @@ RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
 RUN pip3 install turicreate
 #RUN pip3 install -U tensorflow==1.8
 RUN pip3 install -U tensorflow
+RUN pip3 install -U jupyter-tensorboard
 
 RUN pip3 install sympy scipy sklearn matplotlib keras tqdm nltk opencv-python
 RUN apt-get update && apt-get install -y libsm6 libxext6 libgtk2.0-dev
