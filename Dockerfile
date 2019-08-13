@@ -14,10 +14,11 @@ RUN apt-get update && apt-get upgrade -y && \
     update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1 && \
     update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2 && \
     pip3 install --upgrade pip && \
-    pip3 install jupyter && \
-    pip3 install tornado==4.5.3 &&\
-    pip3 install jupyter_contrib_nbextensions && \
-    jupyter contrib nbextension install --user
+    pip3 install jupyterlab && \
+    pip3 install tornado
+#    pip3 install tornado==4.5.3 &&\
+#    pip3 install jupyter_contrib_nbextensions && \
+#    jupyter contrib nbextension install --user
 
 RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
 RUN pip3 install turicreate
