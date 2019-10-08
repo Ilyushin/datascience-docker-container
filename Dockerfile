@@ -1,33 +1,41 @@
-FROM ubuntu:16.04
+FROM nvcr.io/nvidia/tensorflow:19.09-py3
 LABEL maintainer="Evgene Ilyushin <evgene.ilyushin@gmail.com>"
 
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get -y install software-properties-common &&\
-    add-apt-repository ppa:jonathonf/python-3.6 && \
-    apt-get update && \
-    apt-get -y install python3.6 && \
-    apt-get -y install python3.6-dev && \
-    apt-get -y install python3.6-venv && \
-    apt-get -y install wget && \
-    wget https://bootstrap.pypa.io/get-pip.py && \
-    python3.6 get-pip.py && \
-    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1 && \
-    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2 && \
-    pip3 install --upgrade pip && \
-    pip3 install jupyterlab && \
-    pip3 install tornado
-#    pip3 install tornado==4.5.3 &&\
-#    pip3 install jupyter_contrib_nbextensions && \
-#    jupyter contrib nbextension install --user
+RUN apt-get update
+RUN apt-get upgrade -y
+#RUN apt-get install -y nano
+#RUN apt-get install -y build-essential checkinstall wget
+#RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev \
+#    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+#
+#RUN apt-get install -y nodejs npm
+#
+#RUN cd /usr/src
+#RUN wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+#RUN tar xzf Python-3.7.4.tgz
+#RUN cd Python-3.7.4
+#RUN ./configure --enable-optimizations
+#RUN make altinstall
 
-RUN apt-get install -y libblas3 liblapack3 libstdc++6 python-setuptools
-RUN pip3 install turicreate
-#RUN pip3 install -U tensorflow==1.8
-RUN pip3 install -U tensorflow
-RUN pip3 install -U jupyter-tensorboard
+RUN pip3 install jupyterlab \
+    sympy \
+    scipy \
+    sklearn \
+    matplotlib \
+    keras \
+    tqdm \
+    nltk \
+    opencv-python \
+    jupyter-tensorboard \
+    pandas \
+    numpy \
+    deeppavlov \
+    pydub \
+    signal-transformation
 
-RUN pip3 install sympy scipy sklearn matplotlib keras tqdm nltk opencv-python
-RUN apt-get update && apt-get install -y libsm6 libxext6 libgtk2.0-dev
+#RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
+#RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+
 
 COPY start-notebook.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/start-notebook.sh
