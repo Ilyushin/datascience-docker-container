@@ -3,7 +3,7 @@ LABEL maintainer="Evgene Ilyushin <evgene.ilyushin@gmail.com>"
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN appt-get install -y wget
+RUN apt-get install -y wget
 #RUN apt-get install -y nano
 #RUN apt-get install -y build-essential checkinstall
 #RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev \
