@@ -20,6 +20,7 @@ RUN apt-get install -y wget
 
 RUN pip3 install jupyterlab \
     widgetsnbextension \
+    ipywidgets \
     sympy \
     deeppavlov \
 #    scipy \
