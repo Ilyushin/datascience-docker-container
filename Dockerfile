@@ -19,7 +19,9 @@ RUN apt-get install -y wget
 #RUN make altinstall
 
 RUN pip3 install jupyterlab \
+    widgetsnbextension \
     sympy \
+    deeppavlov \
 #    scipy \
 #    sklearn \
     matplotlib \
@@ -28,9 +30,8 @@ RUN pip3 install jupyterlab \
     nltk \
     opencv-python \
     jupyter-tensorboard \
-    pandas \
+#    pandas \
 #    numpy \
-    deeppavlov \
     pymystem3 \
     pydub \
     signal-transformation \
