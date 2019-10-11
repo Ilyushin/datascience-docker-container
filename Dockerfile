@@ -3,8 +3,9 @@ LABEL maintainer="Evgene Ilyushin <evgene.ilyushin@gmail.com>"
 
 RUN apt-get update
 RUN apt-get upgrade -y
+RUN appt-get install -y wget
 #RUN apt-get install -y nano
-#RUN apt-get install -y build-essential checkinstall wget
+#RUN apt-get install -y build-essential checkinstall
 #RUN apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev \
 #    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
 #
@@ -19,22 +20,23 @@ RUN apt-get upgrade -y
 
 RUN pip3 install jupyterlab \
     sympy \
-    scipy \
-    sklearn \
+#    scipy \
+#    sklearn \
     matplotlib \
-    keras \
-    tqdm \
+#    keras \
+#    tqdm \
     nltk \
     opencv-python \
     jupyter-tensorboard \
     pandas \
-    numpy \
+#    numpy \
     deeppavlov \
     pymystem3 \
     pydub \
     signal-transformation \
     pdfminer.six \
-    tensorflow-datasets
+    tensorflow-datasets \
+    seaborn
 
 RUN python3 -m deeppavlov install squad_bert
 
