@@ -17,7 +17,7 @@ Contains widely used Python libraries such as:
 And for interacting with the container Jupyter was pre-installed.
 
 ```
-docker run --name jupyter -d -p 8888:8888 -p 7007:7007 -it -v /host/directory:/home ilyushin/datascience-container:latest
+docker run --gpus all --name jupyter -d -p 8888:8888 -p 7007:7007 -it -v /host/directory:/home ilyushin/datascience-container:latest
 ```
 
 ```

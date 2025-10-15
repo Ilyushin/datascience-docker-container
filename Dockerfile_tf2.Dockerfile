@@ -1,5 +1,5 @@
-FROM nvcr.io/nvidia/tensorflow:19.09-py3
-LABEL maintainer="Evgene Ilyushin <evgene.ilyushin@gmail.com>"
+FROM nvcr.io/nvidia/tensorflow:21.06-tf2-py3
+LABEL maintainer="Eugene Ilyushin <eugene.ilyushin@gmail.com>"
 
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -18,37 +18,53 @@ RUN apt-get install -y ffmpeg
 #RUN ./configure --enable-optimizations
 #RUN make altinstall
 
+# For opencv-python
+RUN apt-get install -y libsm6 libxext6 libxrender-dev
+
+RUN python3 -m pip install --upgrade pip
+
 RUN pip3 install jupyter \
     jupyterlab \
     widgetsnbextension \
     ipywidgets \
     sympy \
-    deeppavlov \
-#    scipy \
-#    sklearn \
     matplotlib \
-#    keras \
-#    tqdm \
+    tqdm \
     nltk \
     opencv-python \
-    jupyter-tensorboard \
-#    pandas \
-#    numpy \
+    xlrd \
     pymystem3 \
     pydub \
-    signal-transformation \
     pdfminer.six \
-    tensorflow-datasets \
-    seaborn
+    #tensorflow-datasets \
+    seaborn \
+    pymorphy2[fast] \
+    SimpleITK \
+    dicom2nifti \
+    Pillow \
+    dask \
+    signal-transformation
 
-RUN python3 -m deeppavlov install squad_bert
+
+#RUN python3 -m deeppavlov install squad_bert
+#RUN pip3 install stanfordnlp spacy-stanfordnlp networkx razdel
 
 #RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
 #RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 
 #RUN apt-get install -y nodejs npm
 
+#RUN apt-get install -y git
+#RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+#RUN cd /opt/letsencrypt
+#RUN chmod +x /opt/letsencrypt/letsencrypt-auto
+#RUN /opt/letsencrypt/letsencrypt-auto certonly \
+# --non-interactive --agree-tos --standalone \
+# --email john.ilyushin@gmail.com -d gpu.ilyushin.science
+
+#COPY openssl.cnf /home
 COPY start-notebook.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/start-notebook.sh
 
 CMD ["start-notebook.sh"]
+
